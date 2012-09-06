@@ -18,7 +18,10 @@ test $UID -eq 0 && user_color='red'
 
 PROMPT='%(?..%{$fg_bold[red]%}exit %?
 %{$reset_color%})'\
-'%n@%m %{$bold_color%}$(git_prompt_status)%{$reset_color%}'\
+'%n@%m'\
+'%(1j. [%j].)'\
+' %{$bold_color%}'\
+'$(git_prompt_status)%{$reset_color%}'\
 '$(git_prompt_info)'\
 '%{$fg[$user_color]%}%~%{$reset_color%}'\
 '%(\ !.\ #.) '
