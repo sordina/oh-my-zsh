@@ -2,6 +2,10 @@
 
 export PATH=$HOME/.rvm/bin:/opt/local/sbin:/Users/lyndon/.gem/ruby/1.8/bin:/usr/local/git/bin:/usr/local/bin:/opt/local/bin:/Applications/MacVim.app/Contents/MacOS:/Users/lyndon/.cabal/bin:/Users/lyndon/Library/Haskell/bin:/Users/lyndon/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin:/usr/X11R6/bin:/usr/local/bin:/usr/local/texlive/2012basic/bin/universal-darwin
 
+MYSQL=/usr/local/mysql/bin
+export PATH=$PATH:$MYSQL:/usr/local/mysql/bin/
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="sordina" # "robbyrussell"
 plugins=(git brew)
