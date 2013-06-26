@@ -15,9 +15,15 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 
-alias   v="/Applications/MacVim.app/Contents/MacOS/vim"
-alias  vi="/Applications/MacVim.app/Contents/MacOS/vim"
-alias vim="/Applications/MacVim.app/Contents/MacOS/vim"
+if [[ "`uname`" == "Darwin" ]]
+then
+	alias   v="/Applications/MacVim.app/Contents/MacOS/vim"
+	alias  vi="/Applications/MacVim.app/Contents/MacOS/vim"
+	alias vim="/Applications/MacVim.app/Contents/MacOS/vim"
+else
+	alias   v=vim
+	alias  vi=vim
+fi
 
 alias     e="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
@@ -66,3 +72,4 @@ alias rvminit=". '$HOME/.rvm/scripts/rvm'"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
