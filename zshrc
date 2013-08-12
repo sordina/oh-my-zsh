@@ -66,6 +66,18 @@ function ec2git-admin {
 	popd
 }
 
+function cabal_unpack {
+	cd ~/Code
+	ls | grep "^$1"
+	if [ ! $? ]
+	then
+		cabal unpack $1
+	fi
+	cd $1*
+}
+
+alias cu="cabal_unpack"
+
 ### RVM -- [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #
 alias rvminit=". '$HOME/.rvm/scripts/rvm'"
