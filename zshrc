@@ -67,13 +67,15 @@ function ec2git-admin {
 }
 
 function cabal_unpack {
-	cd ~/Code
+	pushd ~/Code
 	ls | grep "^$1"
 	if [ ! $? ]
 	then
 		cabal unpack $1
 	fi
 	cd $1*
+	vim *.cabal
+	popd
 }
 
 alias cu="cabal_unpack"
