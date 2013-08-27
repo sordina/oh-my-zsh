@@ -5,6 +5,7 @@ export PATH=/usr/local/go/bin:$HOME/.rvm/bin:/opt/local/sbin:/Users/lyndon/.gem/
 MYSQL=/usr/local/mysql/bin
 export PATH=$PATH:$MYSQL:/usr/local/mysql/bin/
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules/
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="sordina" # "robbyrussell"
@@ -67,14 +68,18 @@ function ec2git-admin {
 }
 
 function cabal_unpack {
+	echo "Cabal Unpacking $1"
 	pushd ~/Code
 	ls | grep "^$1"
-	if [ ! $? ]
+	if [ $? != 0 ]
 	then
+		echo "$1" not found
+		echo checking out "$1"
 		cabal unpack $1
 	fi
-	cd $1*
+	pushd $1*
 	vim *.cabal
+	popd
 	popd
 }
 
