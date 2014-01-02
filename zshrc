@@ -1,34 +1,52 @@
-# export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
-export PATH=/usr/local/go/bin:$HOME/.rvm/bin:/opt/local/sbin:/Users/lyndon/.gem/ruby/1.8/bin:/usr/local/git/bin:/usr/local/bin:/opt/local/bin:/Applications/MacVim.app/Contents/MacOS:/Users/lyndon/.cabal/bin:/Users/lyndon/Library/Haskell/bin:/Users/lyndon/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin:/usr/X11R6/bin:/usr/local/bin:/usr/local/texlive/2012basic/bin/universal-darwin
+# ZSH
+#
+ZSH_THEME="sordina"
+ZSH=$HOME/.oh-my-zsh
+plugins=(git brew)
+source $ZSH/oh-my-zsh.sh
+
+# Paths
+#
+addpath() { export PATH="$1:$PATH" }
+
+addpath /usr/local/go/bin
+addpath /opt/local/sbin
+addpath /usr/local/git/bin
+addpath /usr/local/bin
+addpath /opt/local/bin
+addpath /Applications/MacVim.app/Contents/MacOS
+addpath /Users/lyndon/.cabal/bin
+addpath /Users/lyndon/Library/Haskell/bin
+addpath /usr/bin
+addpath /bin
+addpath /usr/sbin
+addpath /sbin
+addpath /opt/local/bin
+addpath /usr/X11R6/bin
+addpath /usr/local/bin
+addpath /usr/local/texlive/2012basic/bin/universal-darwin
+addpath ~/ruby_versions/ruby-2.1.0-r43832/bin
+
+### Added by the Heroku Toolbelt
+addpath /usr/local/heroku/bin
+
+# Add home bin as highest precedence
+addpath /Users/lyndon/bin
 
 MYSQL=/usr/local/mysql/bin
 export PATH=$PATH:$MYSQL:/usr/local/mysql/bin/
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules/
 
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="sordina" # "robbyrussell"
-plugins=(git brew)
-source $ZSH/oh-my-zsh.sh
-
-# Other Plugins - rvm zsh-syntax-highlighting
-
 # Aliases
 
-if [[ "`uname`" == "Darwin" ]]
-then
-	alias   v="/Applications/MacVim.app/Contents/MacOS/vim"
-	alias  vi="/Applications/MacVim.app/Contents/MacOS/vim"
-	alias vim="/Applications/MacVim.app/Contents/MacOS/vim"
-else
-	alias   v=vim
-	alias  vi=vim
-fi
-
+alias     v=vim
+alias    vi=vim
 alias     e="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
 alias  egui="/Applications/Emacs.app/Contents/MacOS/Emacs --no-splash"
+alias   adb="/Users/lyndon/Code/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/adb"
 
 alias c="clear"
 alias l="ls -GlhF"
@@ -84,11 +102,3 @@ function cabal_unpack {
 }
 
 alias cu="cabal_unpack"
-
-### RVM -- [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-#
-alias rvminit=". '$HOME/.rvm/scripts/rvm'"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
