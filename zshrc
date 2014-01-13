@@ -27,6 +27,7 @@ addpath /usr/X11R6/bin
 addpath /usr/local/bin
 addpath /usr/local/texlive/2012basic/bin/universal-darwin
 addpath ~/ruby_versions/ruby-2.1.0-r43832/bin
+addpath ~/Code/apache-maven-3.1.1/bin
 
 ### Added by the Heroku Toolbelt
 addpath /usr/local/heroku/bin
