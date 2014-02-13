@@ -13,7 +13,6 @@ addpath() { export PATH="$1:$PATH" }
 addpath /usr/local/go/bin
 addpath /opt/local/sbin
 addpath /usr/local/git/bin
-addpath /usr/local/bin
 addpath /opt/local/bin
 addpath /Applications/MacVim.app/Contents/MacOS
 addpath /Users/lyndon/.cabal/bin
@@ -28,9 +27,14 @@ addpath /usr/local/bin
 addpath /usr/local/texlive/2012basic/bin/universal-darwin
 addpath ~/ruby_versions/ruby-2.1.0-r43832/bin
 addpath ~/Code/apache-maven-3.1.1/bin
+addpath /Applications/Postgres.app/Contents/MacOS/bin
+addpath ~/Code/gradle-1.10/bin
 
 ### Added by the Heroku Toolbelt
 addpath /usr/local/heroku/bin
+
+# GHC
+# addpath ~/ghc_versions/7.8.20140130/bin
 
 # Add home bin as highest precedence
 addpath /Users/lyndon/bin
@@ -103,3 +107,16 @@ function cabal_unpack {
 }
 
 alias cu="cabal_unpack"
+
+# Tab Colors:
+# e.g. tab-color 255 0 14
+#
+tab-color() {
+    echo -ne "\033]6;1;bg;red;brightness;$1\a"
+    echo -ne "\033]6;1;bg;green;brightness;$2\a"
+    echo -ne "\033]6;1;bg;blue;brightness;$3\a"
+}
+
+tab-reset() {
+    echo -ne "\033]6;1;bg;*;default\a"
+}
