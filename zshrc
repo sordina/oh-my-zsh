@@ -120,3 +120,9 @@ tab-color() {
 tab-reset() {
     echo -ne "\033]6;1;bg;*;default\a"
 }
+
+blue()   { tab-color 55 55 250 }
+red()    { tab-color 250 25 25 }
+green()  { tab-color 25 250 25 }
+lime()   { tab-color 200 250 10}
+purple() { tab-color 200 10 250 }
