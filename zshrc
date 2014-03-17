@@ -12,6 +12,7 @@ addpath() { export PATH="$1:$PATH" }
 
 addpath /usr/local/go/bin
 addpath /opt/local/sbin
+addpath /usr/local/sbin
 addpath /usr/local/git/bin
 addpath /opt/local/bin
 addpath /Applications/MacVim.app/Contents/MacOS
