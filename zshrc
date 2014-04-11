@@ -34,11 +34,11 @@ addpath ~/Code/gradle-1.10/bin
 ### Added by the Heroku Toolbelt
 addpath /usr/local/heroku/bin
 
-# GHC
-# addpath ~/ghc_versions/7.8.20140130/bin
-
 # Add home bin as highest precedence
 addpath /Users/lyndon/bin
+
+# GHC
+addpath ~/ghc_versions/ghc-7.8.1/bin
 
 MYSQL=/usr/local/mysql/bin
 export PATH=$PATH:$MYSQL:/usr/local/mysql/bin/
