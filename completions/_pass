@@ -2,10 +2,7 @@
 
 _pass() {
   local -a commands
-  commands=(
-    'hello-tmux:our first autocompletion function.'
-    'version:show the used gem version.'
-  )
+  IFS=$'\n' commands=("${(@f)$(find  /Users/lyndon/.password-store -type f | grep -v git | grep -v '/\.gpg' | sed 's/.*\.password-store\///' | sed 's/\.gpg$//')}")
 
   if (( CURRENT == 2 )); then
     _describe -t commands 'commands' commands
