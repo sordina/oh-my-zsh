@@ -54,6 +54,8 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --n
 alias  egui="/Applications/Emacs.app/Contents/MacOS/Emacs --no-splash"
 alias   adb="/Users/lyndon/Code/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/adb"
 
+alias passagent="eval \$(gpg-agent --daemon)"
+
 alias c="clear"
 alias l="ls -GlhF"
 alias ls="ls -GF"
