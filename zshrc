@@ -55,6 +55,7 @@ alias  egui="/Applications/Emacs.app/Contents/MacOS/Emacs --no-splash"
 alias   adb="/Users/lyndon/Code/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/adb"
 
 alias passagent="eval \$(gpg-agent --daemon)"
+alias passagentkill='kill `pgrep gpg-agent`'
 
 alias c="clear"
 alias l="ls -GlhF"
