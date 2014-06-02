@@ -38,7 +38,7 @@ addpath /usr/local/heroku/bin
 addpath /Users/lyndon/bin
 
 # GHC
-addpath ~/ghc_versions/ghc-7.8.1/bin
+addpath ~/ghc_versions/ghc-7.8.2/bin
 
 MYSQL=/usr/local/mysql/bin
 export PATH=$PATH:$MYSQL:/usr/local/mysql/bin/
