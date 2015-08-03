@@ -1,6 +1,7 @@
 
 # ZSH
 #
+DISABLE_AUTO_UPDATE="true"
 ZSH_THEME="sordina"
 ZSH=$HOME/.oh-my-zsh
 plugins=(git brew)
@@ -17,28 +18,28 @@ addpath /usr/local/git/bin
 addpath /opt/local/bin
 addpath /Applications/MacVim.app/Contents/MacOS
 addpath /Users/lyndon/.cabal/bin
-addpath /Users/lyndon/Library/Haskell/bin
 addpath /usr/bin
 addpath /bin
 addpath /usr/sbin
 addpath /sbin
+addpath /usr/pkg/bin  # pkgsrc pkgin http://saveosx.org/download-and-install/
+addpath /usr/pkg/sbin
 addpath /opt/local/bin
+addpath ~/GO_PROJECTS/bin
 addpath /usr/X11R6/bin
 addpath /usr/local/bin
-addpath /usr/local/texlive/2012basic/bin/universal-darwin
-addpath ~/ruby_versions/ruby-2.1.0-r43832/bin
+addpath /usr/local/texlive/2014/bin/universal-darwin/
+addpath ~/ruby_versions/ruby-2.2.1/bin
 addpath ~/Code/apache-maven-3.1.1/bin
 addpath /Applications/Postgres.app/Contents/MacOS/bin
-addpath ~/Code/gradle-1.10/bin
+addpath /usr/local/heroku/bin        # Added by the Heroku Toolbelt
+addpath /Users/lyndon/bin            # Add home bin as highest precedence
+addpath ~/ghc_versions/ghc-7.8.3/bin # GHC
+addpath /usr/local/mercury-14.01.1/bin
 
-### Added by the Heroku Toolbelt
-addpath /usr/local/heroku/bin
-
-# Add home bin as highest precedence
-addpath /Users/lyndon/bin
-
-# GHC
-addpath ~/ghc_versions/ghc-7.8.2/bin
+export  GOPATH="$HOME/GO_PROJECTS" # GO
+export  MANPATH="$MANPATH:/usr/pkg/man" # PKGSRC
+export  GRAILS_HOME="/usr/local/opt/grails/libexec"
 
 MYSQL=/usr/local/mysql/bin
 export PATH=$PATH:$MYSQL:/usr/local/mysql/bin/
@@ -47,13 +48,15 @@ export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules/
 
 # Aliases
 
-alias     v=vim
-alias    vi=vim
-alias     e="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
-alias  egui="/Applications/Emacs.app/Contents/MacOS/Emacs --no-splash"
-alias   adb="/Users/lyndon/Code/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/adb"
+alias           v=vim
+alias          vi=vim
+alias           e="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
+alias       emacs="/Applications/Emacs.app/Contents/MacOS/Emacs --no-window-system --no-splash"
+alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
+alias        egui="/Applications/Emacs.app/Contents/MacOS/Emacs --no-splash"
+alias         adb="/Users/lyndon/Code/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/adb"
 
+alias passes="find ~/.password-store | grep 'gpg$' | diffline"
 alias passagent="eval \$(gpg-agent --daemon)"
 alias passagentkill='kill `pgrep gpg-agent`'
 
@@ -75,6 +78,9 @@ function mkdircd {
 	then
 		echo "Usage: mkdircd <directory>"
 		return 1
+	elif [ -d "$1" ]
+	then
+		cd "$1"
 	else
 		mkdir $1 && cd $1
 	fi

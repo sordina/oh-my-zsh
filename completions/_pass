@@ -2,7 +2,7 @@
 
 _pass() {
   local -a commands
-  IFS=$'\n' commands=("${(@f)$(find  /Users/lyndon/.password-store -type f | grep -v git | grep -v '/\.gpg' | sed 's/.*\.password-store\///' | sed 's/\.gpg$//')}")
+  IFS=$'\n' commands=("${(@f)$(find  /Users/lyndon/.password-store -type f | grep -v '\.git' | grep -v '/\.gpg' | sed 's/.*\.password-store\///' | sed 's/\.gpg$//')}")
 
   if (( CURRENT == 2 )); then
     _describe -t commands 'commands' commands
